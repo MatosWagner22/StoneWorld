@@ -22,7 +22,7 @@ namespace StoneWorld.Models
         public virtual Category Category { get; set; }
         [Display(Name = "Application Type")]
         public int ApplicationTypeId { get; set; }
-        [ForeignKey("ApplicationId")]
+        [ForeignKey("ApplicationTypeId")]
         public virtual ApplicationType ApplicationType { get; set; }
     }
 }
