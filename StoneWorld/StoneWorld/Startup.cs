@@ -28,6 +28,10 @@ namespace StoneWorld
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")
                 ));
+
+            services.AddDefaultIdentity<Microsoft.AspNetCore.Identity.IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddHttpContextAccessor();
             services.AddSession(Options =>
             {
@@ -55,7 +59,7 @@ namespace StoneWorld
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
             app.UseEndpoints(endpoints =>
