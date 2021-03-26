@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoneWorld.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using StoneWorld.Utility;
 
 namespace StoneWorld
 {
@@ -33,6 +35,8 @@ namespace StoneWorld
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultTokenProviders().AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddHttpContextAccessor();
             services.AddSession(Options =>
