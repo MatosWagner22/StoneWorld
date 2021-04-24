@@ -1,6 +1,6 @@
 ﻿@model StoneWorld.Models.ViewModels.ProductVM
-
-@{ 
+@using StoneWorld_Utility
+@{
     var title = "Create Product";
 }
 
@@ -135,7 +135,7 @@
     <script>
         $(document).ready(function () {
             $('.summernote').summernote({
-                height:250
+                height: 250
             });
         });
         function validateInput() {

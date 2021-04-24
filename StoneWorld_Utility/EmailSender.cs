@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoneWorld.Utility
+namespace StoneWorld_Utility
 {
     public class EmailSender : IEmailSender
     {
         private readonly IConfiguration _configuration;
-        public MailJetSettings _mailJetSettings{ get; set; }
+        public MailJetSettings _mailJetSettings { get; set; }
         public EmailSender(IConfiguration configuration)
         {
             _configuration = configuration;

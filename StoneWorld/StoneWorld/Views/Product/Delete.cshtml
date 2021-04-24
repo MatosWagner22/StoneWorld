@@ -1,5 +1,5 @@
 ﻿@model StoneWorld.Models.Product
-
+@using StoneWorld_Utility
 <form method="post">
     <input asp-for="Id" hidden />
     <div class="border p-3">
@@ -72,7 +72,7 @@
                 @* Keep this empty *@
                 @if (Model.Id != 0)
                 {
-                    <img src="@WC.ImagePath@Model.Image"class="w-100" style="border-radius:5px; border:1px solid #bbb" />
+                    <img src="@WC.ImagePath@Model.Image" class="w-100" style="border-radius:5px; border:1px solid #bbb" />
                 }
             </div>
         </div>

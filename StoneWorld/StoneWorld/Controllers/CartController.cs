@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoneWorld.Data;
 using StoneWorld.Models;
-using StoneWorld.Utility;
+using StoneWorld_Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;

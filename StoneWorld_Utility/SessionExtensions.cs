@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace StoneWorld.Utility
+namespace StoneWorld_Utility
 {
     public static class SessionExtensions
     {

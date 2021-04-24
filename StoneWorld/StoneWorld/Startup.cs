@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoneWorld.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using StoneWorld.Utility;
+using StoneWorld_Utility;
 
 namespace StoneWorld
 {

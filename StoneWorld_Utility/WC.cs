@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoneWorld
+namespace StoneWorld_Utility
 {
     public static class WC
     {
