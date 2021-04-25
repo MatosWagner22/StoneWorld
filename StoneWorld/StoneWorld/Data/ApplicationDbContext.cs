@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using StoneWorld.Models;
+using StoneWorld_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

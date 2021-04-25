@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using StoneWorld.Data;
-using StoneWorld.Models;
-using StoneWorld.Models.ViewModels;
+using StoneWorld_Models;
+using StoneWorld_Models.ViewModels;
 using StoneWorld_Utility;
 
 namespace StoneWorld.Controllers

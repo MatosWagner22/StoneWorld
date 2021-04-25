@@ -227,7 +227,7 @@ namespace StoneWorld.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("StoneWorld.Models.ApplicationType", b =>
+            modelBuilder.Entity("StoneWorld_Models.ApplicationType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace StoneWorld.Migrations
                     b.ToTable("ApplicationType");
                 });
 
-            modelBuilder.Entity("StoneWorld.Models.Category", b =>
+            modelBuilder.Entity("StoneWorld_Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -262,7 +262,7 @@ namespace StoneWorld.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("StoneWorld.Models.Product", b =>
+            modelBuilder.Entity("StoneWorld_Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -299,7 +299,7 @@ namespace StoneWorld.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("StoneWorld.Models.ApplicationUser", b =>
+            modelBuilder.Entity("StoneWorld_Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -360,15 +360,15 @@ namespace StoneWorld.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("StoneWorld.Models.Product", b =>
+            modelBuilder.Entity("StoneWorld_Models.Product", b =>
                 {
-                    b.HasOne("StoneWorld.Models.ApplicationType", "ApplicationType")
+                    b.HasOne("StoneWorld_Models.ApplicationType", "ApplicationType")
                         .WithMany()
                         .HasForeignKey("ApplicationTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StoneWorld.Models.Category", "Category")
+                    b.HasOne("StoneWorld_Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

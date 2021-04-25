@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoneWorld.Models.ViewModels
+namespace StoneWorld_Models.ViewModels
 {
     public class ProductVM
     {

@@ -20,7 +20,7 @@ namespace StoneWorld.Migrations
                 .HasAnnotation("ProductVersion", "6.0.0-preview.1.21102.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("StoneWorld.Models.Category", b =>
+            modelBuilder.Entity("StoneWorld_Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

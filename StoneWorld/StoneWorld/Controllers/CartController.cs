@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoneWorld.Data;
-using StoneWorld.Models;
+using StoneWorld_Models;
 using StoneWorld_Utility;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using StoneWorld.Models.ViewModels;
+using StoneWorld_Models.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Text;

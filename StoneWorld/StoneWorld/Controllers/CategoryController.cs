@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StoneWorld.Data;
-using StoneWorld.Models;
+using StoneWorld_Models;
 using StoneWorld_Utility;
 using System;
 using System.Collections.Generic;
