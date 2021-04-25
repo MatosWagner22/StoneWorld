@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StoneWorld.Data;
+using StoneWorld_DataAccess;
 
-namespace StoneWorld.Migrations
+namespace StoneWorld_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210312231711_scaffoldIdentityRazorClassLib")]

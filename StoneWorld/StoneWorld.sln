@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneWorld_Utility", "Stone
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneWorld_Models", "StoneWorld_Models\StoneWorld_Models.csproj", "{82AA76DA-5083-4EE2-8D5B-D58FDDA3DBCF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneWorld_U", "StoneWorld_Utility - copia\StoneWorld_U.csproj", "{D693047F-68F3-40DD-8858-4F77E4B1C33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoneWorld_DataAccess", "StoneWorld_DataAccess\StoneWorld_DataAccess.csproj", "{033CEE99-FDD7-4D8F-85FD-64C23F8048F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{82AA76DA-5083-4EE2-8D5B-D58FDDA3DBCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82AA76DA-5083-4EE2-8D5B-D58FDDA3DBCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82AA76DA-5083-4EE2-8D5B-D58FDDA3DBCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D693047F-68F3-40DD-8858-4F77E4B1C33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D693047F-68F3-40DD-8858-4F77E4B1C33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D693047F-68F3-40DD-8858-4F77E4B1C33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D693047F-68F3-40DD-8858-4F77E4B1C33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033CEE99-FDD7-4D8F-85FD-64C23F8048F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033CEE99-FDD7-4D8F-85FD-64C23F8048F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033CEE99-FDD7-4D8F-85FD-64C23F8048F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033CEE99-FDD7-4D8F-85FD-64C23F8048F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

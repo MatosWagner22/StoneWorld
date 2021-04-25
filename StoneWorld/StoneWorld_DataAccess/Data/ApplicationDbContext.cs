@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoneWorld.Data
+namespace StoneWorld_DataAccess
 {
     public class ApplicationDbContext: IdentityDbContext
     {

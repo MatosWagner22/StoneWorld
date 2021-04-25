@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace StoneWorld.Migrations
+namespace StoneWorld_DataAccess.Migrations
 {
     public partial class AddProductToDatabase : Migration
     {
