@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using StoneWorld_DataAccess;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using StoneWorld_Utility;
+using StoneWorld_DataAccess.Repository.IRepository;
+using StoneWorld_DataAccess.Repository;
 
 namespace StoneWorld
 {
@@ -45,6 +47,7 @@ namespace StoneWorld
                 Options.Cookie.HttpOnly = true;
                 Options.Cookie.IsEssential = true;
             });
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddControllersWithViews();
         }
 
