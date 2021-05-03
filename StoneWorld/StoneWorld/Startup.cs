@@ -48,6 +48,7 @@ namespace StoneWorld
                 Options.Cookie.IsEssential = true;
             });
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IApplicationTypeRepository, ApplicationTypeRepository>();
             services.AddControllersWithViews();
         }
 
