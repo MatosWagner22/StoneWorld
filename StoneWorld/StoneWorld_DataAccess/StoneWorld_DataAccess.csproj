@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StoneWorld_Models\StoneWorld_Models.csproj" />
+    <ProjectReference Include="..\StoneWorld_Utility\StoneWorld_Utility.csproj" />
   </ItemGroup>
 
 </Project>

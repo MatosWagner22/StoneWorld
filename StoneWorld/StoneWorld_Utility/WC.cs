@@ -14,5 +14,8 @@ namespace StoneWorld_Utility
         public const string CustomerRole = "Customer";
 
         public const string EmailAdmin = "matoswagner221@gmail.com";
+
+        public const string CategoryName = "Category";
+        public const string ApplicationTypeName = "ApplicationType";
     }
 }
