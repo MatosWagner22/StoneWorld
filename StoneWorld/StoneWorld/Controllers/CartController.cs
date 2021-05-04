@@ -149,8 +149,9 @@ namespace StoneWorld.Controllers
                 };
 
                 _inqDRepo.Add(inquiryDetail);
-                _inqDRepo.Save();
             }
+
+            _inqDRepo.Save();
 
             return RedirectToAction(nameof(InquiryConfirmation));
         }
