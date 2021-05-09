@@ -43,8 +43,11 @@ namespace StoneWorld.Controllers
                 _catRepo.Add(obj);
                 _catRepo.Save();
 
+                TempData[WC.Success] = "Action completed successfully";
                 return RedirectToAction("Index");
             }
+
+            TempData[WC.Error] = "Error";
             return View(obj);
         }
 
@@ -75,8 +78,11 @@ namespace StoneWorld.Controllers
                 _catRepo.Update(obj);
                 _catRepo.Save();
 
+                TempData[WC.Success] = "Action completed successfully";
                 return RedirectToAction("Index");
             }
+
+            TempData[WC.Error] = "Error";
             return View(obj);
         }
 
@@ -111,6 +117,7 @@ namespace StoneWorld.Controllers
             _catRepo.Remove(obj);
             _catRepo.Save();
 
+            TempData[WC.Success] = "Action completed successfully";
             return RedirectToAction("Index");
         }
 

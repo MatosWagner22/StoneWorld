@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StoneWorld.Controllers
 {
-    [Authorize(WC.AdminRole)]
+    [Authorize(Roles = WC.AdminRole)]
     public class InquiryController : Controller
     {
         private readonly IInquiryHeaderRepository _inqHRepo;
@@ -76,6 +76,7 @@ namespace StoneWorld.Controllers
 
             _inqHRepo.Save();
 
+            TempData[WC.Success] = "Action completed successfully";
             return RedirectToAction(nameof(Index));
         }
 
