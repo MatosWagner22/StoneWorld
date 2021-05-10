@@ -68,7 +68,7 @@ namespace StoneWorld.Controllers
         }
 
         [HttpPost,ActionName("Details")]
-        public IActionResult DetailsPost(int id)
+        public IActionResult DetailsPost(int id, DetailsVM detailsVM)
         {
             List<ShoppingCart> shoppingCartList = new List<ShoppingCart>();
             if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null
@@ -78,7 +78,8 @@ namespace StoneWorld.Controllers
             }
             shoppingCartList.Add(new ShoppingCart
             {
-                ProductId = id
+                ProductId = id,
+                Sqft = detailsVM.Product.TempSqft
             });
             HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
 
