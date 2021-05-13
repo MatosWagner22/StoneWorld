@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace StoneWorld_Models.ViewModels
 {
     public class ProductUserVM
-    {
+    { 
         public ProductUserVM()
         {
             ProductList = new List<Product>(); // singleton
