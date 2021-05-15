@@ -110,6 +110,8 @@
                                         {
                                             <input type="hidden" asp-for="@Model.ProductList[i].Id" />
                                             <input type="hidden" asp-for="@Model.ProductList[i].Name" />
+                                            <input type="hidden" asp-for="@Model.ProductList[i].Price" />
+                                            <input type="hidden" asp-for="@Model.ProductList[i].TempSqft" />
 
                                             <li class="list-group-item d-flex justify-content-between">
                                                 <div>
@@ -133,10 +135,10 @@
 
                                         @if (User.IsInRole(StoneWorld_Utility.WC.AdminRole))
                                         {
-                                    <li class="list-group-item d-flex justify-content-between bg-light">
-                                        <small class="text-info">Total (USD)</small>
-                                        <strong class="text-info">$@orderTotal</strong>
-                                    </li>
+                                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                                <small class="text-info">Total (USD)</small>
+                                                <strong class="text-info">$@orderTotal</strong>
+                                            </li>
                                         }
 
                                     </ul>

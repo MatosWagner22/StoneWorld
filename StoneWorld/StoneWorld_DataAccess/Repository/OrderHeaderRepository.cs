@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StoneWorld_DataAccess.Repository
 {
-    public class OrderHeaderRepository : Repository<InquiryHeader>, IOrderHeaderRepository
+    public class OrderHeaderRepository : Repository<OrderHeader>, IOrderHeaderRepository
     {
         private readonly ApplicationDbContext _db;
         public OrderHeaderRepository(ApplicationDbContext db) : base(db)

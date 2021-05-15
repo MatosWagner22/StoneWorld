@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StoneWorld_DataAccess.Repository.IRepository
 {
-    public interface IOrderHeaderRepository : IRepository<InquiryHeader>
+    public interface IOrderHeaderRepository : IRepository<OrderHeader>
     {
         void Update(OrderHeader obj);
     }

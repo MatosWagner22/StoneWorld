@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StoneWorld_DataAccess.Repository
 {
-    public class OrderDetailRepository : Repository<InquiryDetail>, IOrderDetailRepository
+    public class OrderDetailRepository : Repository<OrderDetail>, IOrderDetailRepository
     {
         private readonly ApplicationDbContext _db;
         public OrderDetailRepository(ApplicationDbContext db) : base(db)
