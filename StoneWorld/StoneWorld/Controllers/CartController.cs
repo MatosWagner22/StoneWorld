@@ -15,6 +15,8 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using StoneWorld_DataAccess;
 using StoneWorld_DataAccess.Repository.IRepository;
+using StoneWorld_Utility.BrainTree;
+using Braintree;
 
 namespace StoneWorld.Controllers
 {
@@ -29,13 +31,14 @@ namespace StoneWorld.Controllers
         private readonly IInquiryDetailRepository _inqDRepo;
         private readonly IOrderHeaderRepository _orderHRepo;
         private readonly IOrderDetailRepository _orderDRepo;
+        private readonly IBrainTreeGate _brain; 
 
         [BindProperty]
         public ProductUserVM ProductUserVM { get; set; }
         public CartController(IWebHostEnvironment webHostEnvironment, IEmailSender emailSender, 
             IProductRepository prodRepo, IApplicationUserRepository appUserRepo, 
             IInquiryHeaderRepository inqHRepo, IInquiryDetailRepository inqDRepo,
-            IOrderHeaderRepository orderHRepo, IOrderDetailRepository orderDRepo)
+            IOrderHeaderRepository orderHRepo, IOrderDetailRepository orderDRepo, IBrainTreeGate brain)
         {
             _webHostEnvironment = webHostEnvironment;
             _emailSender = emailSender;
@@ -45,6 +48,7 @@ namespace StoneWorld.Controllers
             _inqDRepo = inqDRepo;
             _orderHRepo = orderHRepo;
             _orderDRepo = orderDRepo;
+            _brain = brain;
         }
         public IActionResult Index()
         {
@@ -116,6 +120,11 @@ namespace StoneWorld.Controllers
                 {
                     applicationUser = new ApplicationUser();
                 }
+
+                var gateway = _brain.GetGateway();
+                var clientToken = gateway.ClientToken.Generate();
+                ViewBag.ClientToken = clientToken;
+
             }
             else
             {
@@ -155,7 +164,7 @@ namespace StoneWorld.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Summary")]
-        public async Task<IActionResult> SummaryPost(ProductUserVM ProductUserVM)
+        public async Task<IActionResult> SummaryPost(IFormCollection  collection ,ProductUserVM ProductUserVM)
         {
 
             var claimsIdentity = (ClaimsIdentity)User.Identity;
@@ -202,6 +211,34 @@ namespace StoneWorld.Controllers
                 }
 
                 _orderDRepo.Save();
+
+                string nonceFromTheClient = collection["payment_method_nonce"];
+
+                var request = new TransactionRequest
+                {
+                    Amount = Convert.ToDecimal(orderHeader.FinalOrderTotal),
+                    PaymentMethodNonce = nonceFromTheClient,
+                    OrderId = orderHeader.Id.ToString(),
+                    Options = new TransactionOptionsRequest
+                    {
+                        SubmitForSettlement = true
+                    }
+                };
+
+                var gateway = _brain.GetGateway();
+                Result<Transaction> result = gateway.Transaction.Sale(request);
+
+                if (result.Target.ProcessorResponseText == "Approved")
+                {
+                    orderHeader.TransactionId = result.Target.Id;
+                    orderHeader.OrderStatus = WC.StatusApproved;
+                }
+                else
+                {
+                    orderHeader.OrderStatus = WC.StatusCancelled;
+                }
+
+                _orderHRepo.Save();
 
                 return RedirectToAction(nameof(InquiryConfirmation), new { id = orderHeader.Id});
 

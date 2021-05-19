@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using StoneWorld_Utility;
 using StoneWorld_DataAccess.Repository.IRepository;
 using StoneWorld_DataAccess.Repository;
+using StoneWorld_Utility.BrainTree;
 
 namespace StoneWorld
 {
@@ -47,14 +48,22 @@ namespace StoneWorld
                 Options.Cookie.HttpOnly = true;
                 Options.Cookie.IsEssential = true;
             });
+
+            services.Configure<BrainTreeSettings>(Configuration.GetSection("BrainTree"));
+            services.AddSingleton<IBrainTreeGate, BrainTreeGate>();
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IApplicationTypeRepository, ApplicationTypeRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddScoped<IInquiryHeaderRepository, InquiryHeaderRepository>();
             services.AddScoped<IInquiryDetailRepository, InquiryDetailRepository>();
+
             services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+
             services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+
             services.AddControllersWithViews();
         }
 
