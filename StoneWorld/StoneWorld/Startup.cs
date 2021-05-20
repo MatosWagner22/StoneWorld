@@ -64,6 +64,11 @@ namespace StoneWorld
             services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
 
+            services.AddAuthentication().AddFacebook(Options => {
+                Options.AppId = "465328701406823";
+                Options.AppSecret = "d5c95f35b1768abb8c693c256696dd84";
+            });
+
             services.AddControllersWithViews();
         }
 
