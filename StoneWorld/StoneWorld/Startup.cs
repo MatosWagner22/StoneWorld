@@ -16,6 +16,7 @@ using StoneWorld_Utility;
 using StoneWorld_DataAccess.Repository.IRepository;
 using StoneWorld_DataAccess.Repository;
 using StoneWorld_Utility.BrainTree;
+using StoneWorld_DataAccess.Initializer;
 
 namespace StoneWorld
 {
@@ -64,6 +65,8 @@ namespace StoneWorld
             services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
 
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
             services.AddAuthentication().AddFacebook(Options => {
                 Options.AppId = "465328701406823";
                 Options.AppSecret = "d5c95f35b1768abb8c693c256696dd84";
@@ -73,7 +76,7 @@ namespace StoneWorld
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -91,6 +94,7 @@ namespace StoneWorld
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            dbInitializer.Initialize();
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
