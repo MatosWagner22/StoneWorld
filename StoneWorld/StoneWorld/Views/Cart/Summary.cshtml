@@ -140,10 +140,10 @@
                                 @if (User.IsInRole(StoneWorld_Utility.WC.AdminRole))
                                 {
                                     <div class="col-12">
-                                            <div class="container">
-                                                <div id="dropin-container"></div>
-                                                <input id="nonce" name="payment_method_nonce" type="hidden" />
-                                            </div>
+                                        <div class="container">
+                                            <div id="dropin-container"></div>
+                                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                                        </div>
                                     </div>
                                 }
 
@@ -175,7 +175,9 @@
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
     <script src="https://js.braintreegateway.com/web/dropin/1.28.0/js/dropin.min.js"></script>
-    <script>
+    @if (User.IsInRole(StoneWorld_Utility.WC.AdminRole))
+    {
+        <script>
 
         var client_token = "@ViewBag.ClientToken";
         var form = document.querySelector('#payment-form');
@@ -198,7 +200,10 @@
                     });
                 });
         });
+        </script>
+    }
 
+    <script>
         function validateInput() {
             var app_name = document.getElementById("ApplicationUser_FullName").value;
             var app_phone = document.getElementById("ApplicationUser_PhoneNumber").value;
@@ -229,7 +234,6 @@
             }
             return true;
         }
-
     </script>
 }
 
