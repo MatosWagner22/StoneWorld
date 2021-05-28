@@ -52,7 +52,7 @@
                                 {
                                     <div class="row my-1">
                                         <div class="col-3">
-                                            <label>StreetAddress</label>
+                                            <label>Street Address</label>
                                         </div>
                                         <div class="col-9">
                                             <input asp-for="ApplicationUser.StreetAddress" type="text" class="form-control" />
@@ -79,7 +79,7 @@
 
                                     <div class="row my-1">
                                         <div class="col-3">
-                                            <label>PostalCode</label>
+                                            <label>Postal Code</label>
                                         </div>
                                         <div class="col-9">
                                             <input asp-for="ApplicationUser.PostalCode" type="text" class="form-control" />
@@ -156,11 +156,11 @@
                         <div class="col-12 col-md-5 offset-md-7">
                             @if (User.IsInRole(StoneWorld_Utility.WC.AdminRole))
                             {
-                                <button class="btn btn-success form-control" onclick="return validateInput()" id="submit-button">Submit Order</button>
+                                <button class="btn btn-success form-control" onclick="return validateOrder()" id="submit-button">Submit Order</button>
                             }
                             else
                             {
-                                <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Submit Inquiry</button>
+                                <button type="submit" onclick="return validateInquiry()" class="btn btn-primary form-control">Submit Inquiry</button>
                             }
 
                         </div>
@@ -200,11 +200,79 @@
                     });
                 });
         });
+
+            function validateOrder() {
+                var app_name = document.getElementById("ApplicationUser_FullName").value;
+                var app_phone = document.getElementById("ApplicationUser_PhoneNumber").value;
+                var app_email = document.getElementById("ApplicationUser_Email").value;
+                var app_address = document.getElementById("ApplicationUser_StreetAddress").value;
+                var app_city = document.getElementById("ApplicationUser_City").value;
+                var app_state = document.getElementById("ApplicationUser_State").value;
+                var app_code = document.getElementById("ApplicationUser_PostalCode").value;
+                if (app_name.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter Full Name!'
+                    })
+                    return false;
+                }
+                if (app_phone.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter Phone Number!'
+                    })
+                    return false;
+                }
+                if (app_email.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter Email!'
+                    })
+                    return false;
+                }
+                if (app_address.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter Street Address!'
+                    })
+                    return false;
+                }
+                if (app_city.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter City!'
+                    })
+                    return false;
+                }
+                if (app_state.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter State!'
+                    })
+                    return false;
+                }
+                if (app_code.toString() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please enter Postal Code!'
+                    })
+                    return false;
+                }
+                return true;
+            }
+
         </script>
     }
 
-    <script>
-        function validateInput() {
+<script>
+        function validateInquiry() {
             var app_name = document.getElementById("ApplicationUser_FullName").value;
             var app_phone = document.getElementById("ApplicationUser_PhoneNumber").value;
             var app_email = document.getElementById("ApplicationUser_Email").value;
